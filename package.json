@@ -1,6 +1,6 @@
 {
   "name": "arbitrary-sum",
-  "version": "1.0.0",
+  "version": "1.0.0-1",
   "description": "Provide a simple method for calculating the sum of two numbers without requiring numerical accuracy.",
   "repository": {
     "type": "git",

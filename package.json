@@ -2,6 +2,15 @@
   "name": "arbitrary-sum",
   "version": "1.0.0",
   "description": "Provide a simple method for calculating the sum of two numbers without requiring numerical accuracy.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanshinn/arbitrary-sum.git"
+  },
+  "homepage": "https://github.com/hanshinn/arbitrary-sum#readme",
+  "bugs": {
+    "url": "https://github.com/hanshinn/arbitrary-sum/issues"
+  },
+  "author": "hanshinn<hx1923439601@outlook.com>",
   "main": "dist/arbitrary-sum.cjs.js",
   "module": "dist/arbitrary-sum.esm.js",
   "exports": {
@@ -23,8 +32,7 @@
     "sum",
     "accuracy"
   ],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",

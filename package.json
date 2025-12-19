@@ -1,0 +1,38 @@
+{
+  "name": "arbitrary-sum",
+  "version": "1.0.0",
+  "description": "Provide a simple method for calculating the sum of two numbers without requiring numerical accuracy.",
+  "main": "dist/arbitrary-sum.cjs.js",
+  "module": "dist/arbitrary-sum.esm.js",
+  "exports": {
+    ".": {
+      "import": "./dist/arbitrary-sum.esm.js",
+      "require": "./dist/arbitrary-sum.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "keywords": [
+    "big-number",
+    "sum",
+    "accuracy"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "jest": "^30.2.0",
+    "rollup": "^4.53.5"
+  },
+  "dependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5"
+  }
+}

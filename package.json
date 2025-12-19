@@ -1,6 +1,6 @@
 {
   "name": "arbitrary-sum",
-  "version": "1.0.0-3",
+  "version": "1.0.0-4",
   "description": "Provide a simple method for calculating the sum of two numbers without requiring numerical accuracy.",
   "repository": {
     "type": "git",
@@ -11,12 +11,12 @@
     "url": "https://github.com/hanshinn/arbitrary-sum/issues"
   },
   "author": "hanshinn<hx1923439601@outlook.com>",
-  "main": "dist/arbitrary-sum.cjs.js",
-  "module": "dist/arbitrary-sum.esm.js",
+  "main": "dist/arbitrary-sum.js",
+  "module": "dist/arbitrary-sum.mjs",
   "exports": {
     ".": {
-      "import": "./dist/arbitrary-sum.esm.js",
-      "require": "./dist/arbitrary-sum.cjs.js"
+      "import": "./dist/arbitrary-sum.mjs",
+      "require": "./dist/arbitrary-sum.js"
     }
   },
   "files": [

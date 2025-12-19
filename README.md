@@ -31,7 +31,7 @@ arbitrary.add(1, 2); // "3"
 
 ```html
 
-<script src="../dist/arbitrary-sum.js"></script>
+<script src="../dist/arbitrary-sum.min.js"></script>
 <script>
   arbitrary.add(1, 2); // "3"
 </script>

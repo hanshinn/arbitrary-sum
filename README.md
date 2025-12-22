@@ -1,5 +1,8 @@
 # arbitrary-sum
 
+[![npm version](https://img.shields.io/npm/v/arbitrary-sum)](https://www.npmjs.com/package/arbitrary-sum)
+[![npm downloads](https://img.shields.io/npm/dw/arbitrary-sum)](https://www.npmjs.com/package/arbitrary-sum)
+
 ## Description
 
 Provide a simple method for calculating the sum of two numbers without requiring numerical accuracy.

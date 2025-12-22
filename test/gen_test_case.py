@@ -90,7 +90,7 @@ def generate_cases():
         f.write("\n\t\texpect(add(num1, num2)).toBe(expected);");
         f.write("\n\t});");
         f.write("\n});");
-    print(f"✅ 已生成 {test_case_count} 个任意精度十进制加法测试用例（含科学计数法）到 decimal_add_test_cases.txt")
+    print(f"✅ 已生成 {test_case_count} 个任意精度十进制加法测试用例（含科学计数法）到测试文件 index.test.js")
 
 if __name__ == "__main__":
     generate_cases()

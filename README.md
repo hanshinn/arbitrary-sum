@@ -51,3 +51,8 @@ Other features are under development, please provide feedback.
 
 This is a Python file used to generate a large amount of unit test data in bulk.
 
+## Function List
+
+1. add
+2. mul
+

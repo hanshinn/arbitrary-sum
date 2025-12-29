@@ -39,7 +39,8 @@ def normalize(d: Decimal) -> str:
     return s if s != '' else '0'
 
 def generate_cases():
-    cases = []
+    add_cases = []
+    mul_cases = []
 
     # 1. 基础用例
     basic = [
@@ -66,31 +67,43 @@ def generate_cases():
     ]
     for a, b in basic:
         da, db = Decimal(a), Decimal(b)
-        cases.append((a, b, normalize(da + db)))
+        add_cases.append((a, b, normalize(da + db)))
+        mul_cases.append((a, b, normalize(da * db)))
 
     # 2. 随机生成用例
-    while len(cases) < test_case_count:
+    while len(add_cases) < test_case_count:
         a_str = rand_decimal_str()
         b_str = rand_decimal_str()
         try:
             da = Decimal(a_str)
             db = Decimal(b_str)
-            res = normalize(da + db)
-            cases.append((a_str, b_str, res))
+            add_cases.append((a_str, b_str, normalize(da + db)))
+            mul_cases.append((a_str, b_str, normalize(da * db)))
         except:
             continue  # 跳过极少数无效格式
 
     # 写入文件
-    with open("test/index.test.js", "w") as f:
-        f.write('import { add } from "../index.js";\n\n[')
-        for a, b, s in cases[:test_case_count]:
+    with open("test/add.test.js", "w") as f:
+        f.write('import arbitrary from "../index.js";\n\n[')
+        for a, b, s in add_cases[:test_case_count]:
             f.write(f'\n\t["{a}", "{b}", "{s}"],')
         f.write("\n].forEach(([num1, num2, expected]) => {");
         f.write("\n\ttest(`add(${num1}, ${num2})`, () => {");
-        f.write("\n\t\texpect(add(num1, num2)).toBe(expected);");
+        f.write("\n\t\texpect(arbitrary.add(num1, num2)).toBe(expected);");
         f.write("\n\t});");
         f.write("\n});");
-    print(f"✅ 已生成 {test_case_count} 个任意精度十进制加法测试用例（含科学计数法）到测试文件 index.test.js")
+    print(f"✅ 已生成 {test_case_count} 个任意精度十进制加法测试用例（含科学计数法）到测试文件 add.test.js")
+
+    with open("test/mul.test.js", "w") as f:
+        f.write('import arbitrary from "../index.js";\n\n[')
+        for a, b, s in mul_cases[:test_case_count]:
+            f.write(f'\n\t["{a}", "{b}", "{s}"],')
+        f.write("\n].forEach(([num1, num2, expected]) => {");
+        f.write("\n\ttest(`mul(${num1}, ${num2})`, () => {");
+        f.write("\n\t\texpect(arbitrary.mul(num1, num2)).toBe(expected);");
+        f.write("\n\t});");
+        f.write("\n});");
+    print(f"✅ 已生成 {test_case_count} 个任意精度十进制乘法测试用例（含科学计数法）到测试文件 mul.test.js")
 
 if __name__ == "__main__":
     generate_cases()

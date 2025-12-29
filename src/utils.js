@@ -1,6 +1,8 @@
 //#region function formatNumber
 export function formatNumber(num) {
   if (!num) return '0';
+  if (num === Infinity || num === -Infinity) return num;
+  if (num === "Infinity" || num === "-Infinity") return Infinity;
   num = String(num);
   const match = num.match(/^([+-])?(\d+)(\.(\d+))?[eE]([+-])?(\d+)$/)
   if (match) {

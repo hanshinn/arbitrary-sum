@@ -20,11 +20,14 @@ export function add(num1, num2) {
   if (isNaN(num1) || isNaN(num2)) {
     return NaN;
   }
-  if (num1 == Infinity || num2 == Infinity || num1 == -Infinity || num2 == -Infinity) {
-    return +num1 + +num2;
-  }
   num1 = formatNumber(num1);
   num2 = formatNumber(num2);
+  if (
+    num1 === Infinity ||
+    num2 === Infinity ||
+    num1 === -Infinity ||
+    num2 === -Infinity
+  ) return num1 + num2;
   const reg = /^([+-]?)(\d+)(\.(\d*))?$/;
   if (!reg.test(num1) || !reg.test(num2)) {
     return NaN;

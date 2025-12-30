@@ -1,7 +1,7 @@
-import { formatNumber } from "./utils.js";
-import { add } from "./add.js";
+import { formatNumber } from "../utils/utils.js";
+import add from "./add.js";
 
-export function mul(num1, num2) {
+export default function mul(num1, num2) {
   if (isNaN(num1) || isNaN(num2)) {
     return NaN;
   }

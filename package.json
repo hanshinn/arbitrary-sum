@@ -1,6 +1,6 @@
 {
   "name": "arbitrary-sum",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Provide a simple method for calculating the sum of two numbers without requiring numerical accuracy.",
   "repository": {
     "type": "git",
@@ -12,11 +12,21 @@
   },
   "author": "hanshinn<hx1923439601@outlook.com>",
   "main": "dist/arbitrary-sum.js",
-  "module": "dist/arbitrary-sum.mjs",
+  "module": "dist/arbitrary-sum.esm.js",
+  "unpkg": "dist/arbitrary-sum.min.js",
   "exports": {
     ".": {
-      "import": "./dist/arbitrary-sum.mjs",
-      "require": "./dist/arbitrary-sum.js"
+      "import": "./dist/arbitrary-sum.esm.js",
+      "require": "./dist/arbitrary-sum.js",
+      "browser": "./dist/arbitrary-sum.min.js"
+    },
+    "./add": {
+      "import": "./dist/esm/add.js",
+      "require": "./dist/add.js"
+    },
+    "./mul": {
+      "import": "./dist/esm/add.js",
+      "require": "./dist/add.js"
     }
   },
   "files": [
@@ -37,10 +47,10 @@
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "jest": "^30.2.0",
     "rollup": "^4.53.5"
-  },
-  "dependencies": {
   }
 }

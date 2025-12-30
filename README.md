@@ -7,6 +7,11 @@
 
 Provide a simple method for calculating the sum of two numbers without requiring numerical accuracy.
 
+## Function List
+
+1. add: (num: number | string, num2: number | string) => string
+2. mul: (num: number | string, num2: number | string) => string
+
 ## Usage
 
 ### ES-MODULE
@@ -51,8 +56,33 @@ Other features are under development, please provide feedback.
 
 This is a Python file used to generate a large amount of unit test data in bulk.
 
-## Function List
 
-1. add
-2. mul
+### Test Case
 
+#### Base Test Case
+- "0", "0"
+- "0.0", "0.0"
+- "0e10", "0E-5"
+- "1", "0"
+- "-1", "0"
+- "1.0", "0.0"
+- "1e0", "0"
+- "0.1", "0.2"
+- "1e-1", "2e-1"
+- "9.999e2", "0.001"
+- "1e3", "-1"
+- "100", "-0.01"
+- "-100", "-0.01"
+- "123.456", "-123.456"
+- "1.23e2", "4.56e1"
+- "-5e10", "5e10"
+- "1e100", "1e100"
+- "1e-100", "2e-100"
+- "0.999999999999999999999999999999", "0.000000000000000000000000000001"
+- "-0.999999999999999999999999999999", "-0.000000000000000000000000000001"
+
+#### Other Test Case
+
+Generate test cases through test\gen_test_case.py.
+
+By modifying the 'test_case_count' variable in this file, you can generate a corresponding number of test cases for the test file of the corresponding method.

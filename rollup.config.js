@@ -8,7 +8,7 @@ export default [
   {
     input: 'index.js',
     output: {
-      file: 'dist/arbitrary-sum.mjs',
+      file: 'dist/arbitrary-sum.js',
       format: 'es'
     },
     plugins: [terser()]
@@ -17,7 +17,7 @@ export default [
   {
     input: 'index.js',
     output: {
-      file: 'dist/arbitrary-sum.js',
+      file: 'dist/arbitrary-sum.cjs',
       format: 'cjs'
     },
     plugins: [terser()]

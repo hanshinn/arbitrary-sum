@@ -11,12 +11,12 @@
     "url": "https://github.com/hanshinn/arbitrary-sum/issues"
   },
   "author": "hanshinn<hx1923439601@outlook.com>",
-  "main": "dist/arbitrary-sum.js",
-  "module": "dist/arbitrary-sum.mjs",
+  "main": "dist/arbitrary-sum.cjs",
+  "module": "dist/arbitrary-sum.js",
   "exports": {
     ".": {
-      "import": "./dist/arbitrary-sum.mjs",
-      "require": "./dist/arbitrary-sum.js"
+      "import": "./dist/arbitrary-sum.js",
+      "require": "./dist/arbitrary-sum.cjs"
     }
   },
   "files": [

@@ -82,23 +82,28 @@ def generate_cases():
         except:
             continue  # 跳过极少数无效格式
 
+    # 写入文件
+    with open("test/add.test.js", "w") as f:
+        f.write('import arbitrary from "../index.js";\n\n[')
+        for a, b, s in add_cases[:test_case_count]:
+            f.write(f'\n\t["{a}", "{b}", "{s}"],')
+        f.write("\n].forEach(([num1, num2, expected]) => {");
+        f.write("\n\ttest(`add(${num1}, ${num2})`, () => {");
+        f.write("\n\t\texpect(arbitrary.add(num1, num2)).toBe(expected);");
+        f.write("\n\t});");
+        f.write("\n});");
+    print(f"✅ 已生成 {test_case_count} 个任意精度十进制加法测试用例（含科学计数法）到测试文件 add.test.js")
 
-    cases = {
-        "add": add_cases,
-        "mul": mul_cases
-    }
-    for key, cases in cases.items():
-        with open(f"test/{key}.test.js", "w") as f:
-            f.write(f'import {key} from "../dist/esm/{key}.js";\n\n[')
-            for a, b, s in cases[:test_case_count]:
-                f.write(f'\n\t["{a}", "{b}", "{s}"],')
-            f.write("\n].forEach(([num1, num2, expected]) => {");
-            f.write(f"\n\ttest(`{key}(${{num1}}, ${{num2}})`, () => {{");
-            f.write(f"\n\t\texpect({key}(num1, num2)).toBe(expected);");
-            f.write("\n\t});");
-            f.write("\n});");
-        print(f"✅ 已生成 {test_case_count} 个任意精度十进制测试用例（含科学计数法）到测试文件 {key}.test.js")
-
+    with open("test/mul.test.js", "w") as f:
+        f.write('import arbitrary from "../index.js";\n\n[')
+        for a, b, s in mul_cases[:test_case_count]:
+            f.write(f'\n\t["{a}", "{b}", "{s}"],')
+        f.write("\n].forEach(([num1, num2, expected]) => {");
+        f.write("\n\ttest(`mul(${num1}, ${num2})`, () => {");
+        f.write("\n\t\texpect(arbitrary.mul(num1, num2)).toBe(expected);");
+        f.write("\n\t});");
+        f.write("\n});");
+    print(f"✅ 已生成 {test_case_count} 个任意精度十进制乘法测试用例（含科学计数法）到测试文件 mul.test.js")
 
 if __name__ == "__main__":
     generate_cases()
